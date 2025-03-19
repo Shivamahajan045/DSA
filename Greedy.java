@@ -1,9 +1,7 @@
+//Activity selection
 import java.util.*;
 public class Greedy{
-    public static void main(String[] args){  
-        int start[] = {1, 3, 0, 5, 8, 5};   //O(n)
-        int end[] = {2, 4, 6, 7, 9, 9};
-
+    public static void activitySelection(int start[], int end[]){
         //sorting
         int activities[][] = new int[start.length][3];
         for(int i=0; i<start.length; i++){
@@ -15,7 +13,6 @@ public class Greedy{
         //lamda expression
         Arrays.sort(activities, Comparator.comparingDouble(o -> o[2]));
        
-
         //end time basis sorted
         int maxAct = 0;
         ArrayList<Integer> ans = new ArrayList<>();
@@ -33,9 +30,14 @@ public class Greedy{
             }
         }
         System.out.println("max activities = "+ maxAct);
-        for(int i=0; i<ans.size(); i++){
-            System.out.print("A"+ans.get(i)+" ");
+       for (int i : ans) {
+            System.out.print("A" + i + " ");
         }
         System.out.println();
+    }
+    public static void main(String[] args){  
+        int start[] = {1, 3, 0, 5, 8, 5};   //O(n)
+        int end[] = {2, 4, 6, 7, 9, 9};
+        activitySelection(start, end);
     }
 }
