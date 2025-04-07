@@ -48,8 +48,42 @@ public class HashMapCC{
         }
         System.out.println("Distinct elements are : " + set.size());
     }
+
+    public static void unionAndIntersection(int arr1[], int arr2[]){
+        HashSet<Integer> set = new HashSet<>();
+        for(int i=0; i<arr1.length; i++){
+            set.add(arr1[i]);
+        }
+
+        for(int i=0; i<arr2.length; i++){
+            set.add(arr2[i]);
+        }
+        System.out.println("Union count : " + set.size());
+        
+        for(Integer it : set){
+            System.out.print(it+" ");
+        }
+        System.out.println();
+
+        set.clear();
+
+        for(int i=0; i<arr1.length; i++){
+            set.add(arr1[i]);
+        }
+
+        int count = 0;
+        for(int i=0; i<arr2.length; i++){
+            if(set.contains(arr2[i])){
+                count++;
+                set.remove(arr2[i]);
+                System.out.print(arr2[i] + " ");
+            }
+        }
+        System.out.println("Intersection count : "+ count);
+    }
     public static void main(String[] args){
-       int nums[] = {4, 3, 2, 5, 6, 7, 3, 4, 2, 1};
-       countDistinctElements(nums);
+       int arr1[] = {7, 3, 9};
+       int arr2[] = {6, 3, 9, 2, 9, 4};
+       unionAndIntersection(arr1, arr2);
     }
 }
