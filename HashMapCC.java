@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.HashSet;
 public class HashMapCC{
     public static void majorityElement(int arr[]){
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -39,9 +40,16 @@ public class HashMapCC{
         }
         return map.isEmpty();
     }
+
+    public static void countDistinctElements(int nums[]){
+        HashSet<Integer> set = new HashSet<>();
+        for(int i=0; i<nums.length; i++){
+            set.add(nums[i]);
+        }
+        System.out.println("Distinct elements are : " + set.size());
+    }
     public static void main(String[] args){
-        String s = "tulip";
-        String t = "lipid";
-        System.out.println(validAnagram(s, t));
+       int nums[] = {4, 3, 2, 5, 6, 7, 3, 4, 2, 1};
+       countDistinctElements(nums);
     }
 }
