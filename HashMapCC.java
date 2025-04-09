@@ -96,8 +96,23 @@ public class HashMapCC{
         }
         System.out.println("Longest subarray with zero sum : " + len);
     }
+    public static void subarraySumEqualToK(int arr[], int k){
+        int sum = 0;
+        int ans = 0;
+        HashMap<Integer, Integer>map = new HashMap<>();
+        map.put(0, 1);
+        for(int j = 0; j<arr.length; j++){
+            sum += arr[j];
+            if(map.containsKey(sum - k)){
+                ans += map.get(sum - k);
+            }
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+        System.out.println("Subarray Sum Equal To K = " + ans);
+    }
     public static void main(String[] args){
-       int arr[] = {15, -2, 2, -8, 1, 7, 10, 23};
-       longestSubarrayWithZeroSum(arr);
+       int arr[] = {10, 2, -2, -20, 10};
+       int k = -10;
+       subarraySumEqualToK(arr, k);
     }
 }
